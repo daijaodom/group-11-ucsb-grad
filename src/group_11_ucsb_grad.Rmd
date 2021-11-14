@@ -19,6 +19,8 @@ ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv")) # read in data
 
 ```{r}
 ggplot(ucsb_grad, aes(x = year_abbr, y = domestic_enrollment, fill = ethnicity)) +
-  geom_col() #geom _column
+  geom_col(position = "fill") + #geom _column and updated fill to convert columns from absolute counts to proportions
+  labs(x = "Abbreviated Year",
+       y = "Domestic Graduate Enrollment")
 ```
 
