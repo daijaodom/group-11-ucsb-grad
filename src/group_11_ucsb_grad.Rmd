@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE) #updated to show no warnings or messages
 
 # Attach packages
 library(tidyverse)
@@ -20,7 +20,7 @@ ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv")) # read in data
 ```{r, fig.cap= "Domestic Graduate Enrollment by Ethnicity for 2008 - 2019. The percentage of white domestic graduate students enrolling is increasing through time. This seems driven by a decrease in students of unknown ethnicity. Minority enrollment seems stable or to have slightly increased depending on the group."}
 ggplot(ucsb_grad, aes(x = year_abbr, y = domestic_enrollment, fill = ethnicity)) +
   geom_col(position = "fill") + #geom _column and updated fill to convert columns from absolute counts to proportions
-  labs(x = "Abbreviated Year",
+  labs(x = "Abbreviated Year", # updated axis labels and added title
        y = "Domestic Graduate Enrollment",
        title = "Domestic Graduate Enrollment by Ethnicity for 2008 - 2019") +
   theme_minimal() #updated theme
